@@ -13,4 +13,13 @@ RSpec.describe "items controller" do
     expect(parsed_items.first['name']).to eq "banana"
     expect(parsed_items.first).not_to include("created_at")
   end
+
+  it "gets single instance of item" do
+    get '/api/v1/items/1'
+    assert_response :success
+
+    parsed_item = JSON.parse(response.body)
+
+    expect(parsed_item['name']).to eq ''
+  end
 end
