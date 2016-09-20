@@ -20,6 +20,8 @@ RSpec.describe "items controller" do
 
     parsed_item = JSON.parse(response.body)
 
-    expect(parsed_item['name']).to eq ''
+    expect(parsed_item['name']).to eq 'banana'
+    expect(parsed_item.count).to eq 4
+    expect(parsed_item).not_to include("created_at")
   end
 end
