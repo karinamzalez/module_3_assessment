@@ -10,6 +10,9 @@ class Api::V1::ItemsController < ApplicationController
   def destroy
     @item = Item.find_by(params[:id])
     @item.destroy
-    redirect_to items_path
+    render json: {
+      error: "no content",
+      status: 204
+    }, status: 204
   end
 end
