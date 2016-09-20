@@ -2,28 +2,25 @@ require 'rails_helper'
 
 RSpec.feature "guest user displays items" do
   scenario "user displays items" do
-    VCR.use_cassette "cassettes/stores" do
-      response = call_api("https://api.bestbuy.com/v1/")
-    end
+    VCR.use_cassette "stores#stores" do
 
     visit '/'
 
-    # within("search_box") do
-      fill_in :zip, with: "80202"
-    # end
+    fill_in :zip, with: "80202"
 
     click_on "search"
 
     expect(current_path).to include '/search'
 
-    within('#store_list') do
+    within("#store_list") do
       expect(page).to have_content "17 Total Stores"
-      expect(stores.count).to eq 15
-      expect(stores.first.long_name).to eq "Best Buy Mobile - Cherry Creek Shopping Center"
-      expect(stores.first.city).to eq "Denver"
-      expect(stores.first.distance).to eq 3.25
-      expect(stores.first.phone_number).to eq "303-270-9189"
-      expect(stores.first.store_type).to eq "Mobile"
+      # expect(("h5").count).to eq 15
+      expect(page).to have_content "Best Buy Mobile - Cherry Creek Shopping Center"
+      expect(page).to have_content "Denver"
+      expect(page).to have_content 3.25
+      expect(page).to have_content "303-270-9189"
+      expect(page).to have_content "Mobile"
     end
+  end
   end
 end
