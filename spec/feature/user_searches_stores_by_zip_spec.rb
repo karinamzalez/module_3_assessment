@@ -2,11 +2,15 @@ require 'rails_helper'
 
 RSpec.feature "guest user displays items" do
   scenario "user displays items" do
+    VCR.use_cassette "cassettes/stores" do
+      response = call_api("https://api.bestbuy.com/v1/")
+    end
+
     visit '/'
 
-    within(:search_box) do
+    # within("search_box") do
       fill_in :zip, with: "80202"
-    end
+    # end
 
     click_on "search"
 

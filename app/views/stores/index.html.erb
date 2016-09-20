@@ -1,0 +1,19 @@
+<div class="#store_list">
+  <div class="row">
+    <div class="col-sm-12">
+      <h1>17 Total Stores</h1>
+    </div>
+  </div>
+  <div class="row"></div>
+  <% @stores.each do |store| %>
+    <div class="col-sm-3">
+      <ul>
+        <h5><%= store[:longName] %></h5>
+        <li><%= store[:city] %></li>
+        <li><%= store[:distance] %></li>
+        <li><%= store[:phone] %></li>
+        <li><%= store[:storeType] %></li>
+      </ul>
+    </div>
+  <% end %>
+</div>
