@@ -11,6 +11,6 @@ RSpec.describe "items controller" do
 
     expect(parsed_items.count).to eq 3
     expect(parsed_items.first['name']).to eq "banana"
-    expect(parsed_items)
+    expect(parsed_items.first).not_to include("created_at")
   end
 end
