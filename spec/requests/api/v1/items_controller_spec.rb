@@ -24,4 +24,14 @@ RSpec.describe "items controller" do
     expect(parsed_item.count).to eq 4
     expect(parsed_item).not_to include("created_at")
   end
+
+  it "deletes single instance of item" do
+    delete '/api/v1/items/1'
+    assert_response :success
+
+    get '/api/v1/items'
+    parsed_items = JSON.parse(response.body)
+
+    expect(parsed_items.count).to eq 2
+  end
 end
