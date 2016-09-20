@@ -1,3 +1,9 @@
+<%= form_tag("/search", method: "get") do %>
+  <%= label_tag(:search_box, "Search Stores By Zip:") %>
+  <%= text_field_tag(:zip) %>
+  <%= submit_tag("search") %>
+<% end %>
+
 <div class="container">
   <div class="row">
     <div class="col-sm-12">
@@ -15,4 +21,3 @@
     </div>
   <% end %>
 </div>
-
