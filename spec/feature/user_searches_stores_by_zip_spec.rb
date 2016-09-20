@@ -15,11 +15,11 @@ RSpec.feature "guest user displays items" do
   within('#store_list') do
     expect(page).to have_content "17 Total Stores"
     expect(stores.count).to eq 15
-    expect(stores.first.long_name).to eq ""
-    expect(stores.first.city).to eq ""
-    expect(stores.first.distance).to eq ""
-    expect(stores.first.phone_number).to eq ""
-    expect(stores.first.store_type).to eq ""
+    expect(stores.first.long_name).to eq "Best Buy Mobile - Cherry Creek Shopping Center"
+    expect(stores.first.city).to eq "Denver"
+    expect(stores.first.distance).to eq 3.25
+    expect(stores.first.phone_number).to eq "303-270-9189"
+    expect(stores.first.store_type).to eq "Mobile"
   end
 # And I should see stores within 25 miles of 80202
 # And I should see a message that says "17 Total Stores"
