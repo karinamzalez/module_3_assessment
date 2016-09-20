@@ -1,0 +1,14 @@
+one:
+  name: apple
+  text: red or green
+  image_url: both
+
+two:
+  name: pear
+  text: red or green
+  image_url: both
+
+three:
+  name: banana
+  text: red or green
+  image_url: both

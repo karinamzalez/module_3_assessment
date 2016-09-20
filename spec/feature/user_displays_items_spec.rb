@@ -12,7 +12,7 @@ RSpec.feature "guest user displays items" do
 
   scenario "user gets all items" do
     fixtures :items
-    items = items.all
+    items = items(:all)
 
     get '/api/v1/items'
     expect(page.status_code).to eq(200)
