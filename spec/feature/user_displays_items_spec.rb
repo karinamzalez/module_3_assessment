@@ -9,4 +9,11 @@ RSpec.feature "guest user displays items" do
       expect(page).to have_content('Items'), "page should have an Items heading"
     end
   end
+
+  scenario "user gets all items" do
+    visit '/api/v1/items'
+    expect(page.status_code).to eq(200)
+
+    
+  end
 end
